@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,400;0,600;1,400;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+$font-family: (
+  inter: ("Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif),
+  opensans: ("Open Sans", Arial, sans-serif)
+)  ;
+
+$font-weight: (
+  fw-light: 300,
+  fw-normal: 400,
+  fw-semibold: 600
+);
+
+$font-size: (
+  fs-xxl: 36px,
+  fs-xl: 28px,
+  fs-l: 24px,
+  fs-m: 22px,
+  fs-r: 18px,
+  fs-sm: 16px,
+  fs-xs: 13px
+);
+
+$line-height: (
+  lh-sm: 1.1,
+  lh-r: 1.25,
+  lh-lg: 1.5,
+  lh-re: 1.35
+);

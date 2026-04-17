@@ -1,0 +1,49 @@
+@use "../../styles/utils/functions" as t;
+
+@use "../../styles/tokens/colors" as c;
+@use "../../styles/tokens/spacing" as s;
+@use "../../styles/typography.scss";
+
+.footer {
+  background: t.token(c.$color-primary, "primary");
+  color: t.token(c.$color-grayscale, "white");
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: t.token(s.$padding, "padding-m");
+  gap: t.token(s.$padding, "padding-r");
+}
+
+.logo {
+  @extend .text-logo;
+}
+
+.divider {
+  height: 1px;
+  background: t.token(c.$color-grayscale, "white");
+  margin: t.token(s.$padding, "padding-sm") 0;
+}
+
+.bottom {
+  @extend .text-caption;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  gap: t.token(s.$padding, "padding-r");
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

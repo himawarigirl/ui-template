@@ -1,0 +1,92 @@
+@use "../../styles/tokens/spacing" as sp;
+@use "../../styles/tokens/colors" as c;
+@use "../../styles/tokens/border-radius" as br;
+@use "../../styles/utils/functions" as t;
+
+@use "../../styles/typography.scss";
+
+// наведения переменные цвета
+
+$text: t.token(c.$color-grayscale, "black");
+$muted: t.token(c.$color-primary, "muted");
+
+$border: t.token(c.$color-primary, "border");
+$danger-border: t.token(c.$color-danger, "border");
+$success-border: t.token(c.$color-success, "border");
+
+$box-shadow: t.token(c.$shadow, "light");
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; // переменная
+}
+
+.label {
+  @extend .text-small;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  padding: t.token(sp.$padding, "padding-sm");
+  border-radius: t.token(br.$border-radius, "xs");
+
+  border: 1px solid $border;
+  color: $muted;
+
+  &:hover {
+    border-color: t.token(c.$color-primary, "hover");
+  }
+
+  &:focus-within {
+    box-shadow: $box-shadow; // добавить шедоу фокус
+  }
+
+  &:has(input:disabled) {
+    background: t.token(c.$color-grayscale, "grayscale-2");
+    border-color: $muted;
+  }
+}
+
+.field.success {
+  border-color: $success-border;
+  color: $success-border;
+}
+
+.field.error {
+  border-color: $danger-border;
+  color: $danger-border;
+}
+
+.input {
+  @extend .text-small;
+  width: 100%;
+  color: $text;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: t.token(c.$color-grayscale, "grayscale-5");
+  }
+}
+
+.right {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 24px; // надо автоматизировать
+    height: 24px;
+  }
+}
+
+.message {
+  @extend .text-caption;
+  color: $danger-border;
+}

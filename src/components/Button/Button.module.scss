@@ -1,0 +1,34 @@
+@use "../../styles/tokens/button-variants" as variants;
+@use "../../styles/tokens/border-radius" as br;
+
+@use "../../styles/tools/mixins" as mixins;
+@use "../../styles/typography.scss" as ty;
+@use "../../styles/utils/functions" as t;
+
+.button {
+  @include mixins.button-base(8px, 16px);
+  @extend .text-button;
+
+  border: 1px solid transparent;
+  white-space: nowrap;
+  border-radius: t.token(br.$border-radius, "xs");
+
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+@each $name, $map in variants.$button-variants {
+  .#{$name} {
+    background: t.token(variants.$button-variants, $name, background);
+    color: t.token(variants.$button-variants, $name, color);
+    border: t.token(variants.$button-variants, $name, border);
+
+    &:hover {
+      background: t.token(variants.$button-variants, $name, hover-background);
+    }
+
+    &:active {
+      background: t.token(variants.$button-variants, $name, active-background);
+    }
+  }
+}

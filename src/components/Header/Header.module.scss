@@ -1,0 +1,61 @@
+@use "../../styles/tokens/spacing" as s;
+@use "../../styles/tokens/border-radius" as br;
+@use "../../styles/tokens/colors" as c;
+@use "../../styles/typography.scss";
+
+@use "../../styles/utils/functions" as t;
+
+.header {
+  background: t.token(c.$color-grayscale, "white");
+  border-bottom: 1px solid t.token(c.$color-primary, "border");
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 40% 1fr;
+  align-items: center;
+
+  padding: t.token(s.$padding, "padding-r") t.token(s.$padding, "padding-m");
+}
+.logo {
+  @extend .text-logo;
+
+  grid-column: 1;
+  justify-self: start;
+}
+
+.actions {
+  grid-column: 3;
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  gap: t.token(s.$padding, "padding-m");
+}
+
+.login {
+  @extend .text-button-semibold;
+  padding: t.token(s.$padding, "padding-sm") t.token(s.$padding, "padding-m");
+  text-transform: uppercase;
+  width: 180px; // подправить
+}
+
+.avatar {
+  @extend .text-small;
+  width: 48px;
+  height: 48px;
+
+  border-radius: t.token(br.$border-radius, "avatar");
+  background: t.token(c.$color-primary, "primary"); 
+  color: t.token(c.$color-grayscale, "white");
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} // подправить
+
+.icon {
+  background: none;
+  align-self: center;
+  color: t.token(c.$color-grayscale, "grayscale-5");
+}

@@ -1,0 +1,53 @@
+@use "../styles/tools/mixins" as mixins;
+
+h1 {
+  @include mixins.text-style(fs-xxl, fw-semibold, lh-sm, opensans);
+}
+
+h2 {
+  @include mixins.text-style(fs-xl, fw-semibold, lh-sm, opensans);
+}
+
+h3 {
+  @include mixins.text-style(fs-xl, fw-normal, lh-sm, opensans);
+}
+
+h4 {
+  @include mixins.text-style(fs-l, fw-normal, lh-sm, opensans);
+}
+
+.text-large {
+  @include mixins.text-style(fs-m, fw-normal, lh-lg, inter);
+}
+
+.text-medium {
+  @include mixins.text-style(fs-r, fw-light, lh-re, inter);
+}
+
+.text-regular {
+  @include mixins.text-style(fs-r, fw-normal, lh-re, inter);
+}
+
+.text-small {
+  @include mixins.text-style(fs-sm, fw-normal, lh-lg, inter);
+}
+
+.text-small-light {
+  @include mixins.text-style(fs-sm, fw-light, lh-lg, inter);
+}
+
+.text-caption {
+  @include mixins.text-style(fs-xs, fw-norma, lh-lg, inter);
+}
+
+.text-button {
+  @include mixins.text-style(fs-sm, fw-normal, lh-sm, inter);
+}
+
+.text-button-semibold {
+  @include mixins.text-style(fs-sm, fw-semibold, lh-sm, inter);
+}
+
+.text-logo {
+  @include mixins.text-style(fs-xl, fw-light, lh-sm, opensans);
+}

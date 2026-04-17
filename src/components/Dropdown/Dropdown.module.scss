@@ -1,0 +1,71 @@
+@use "../../styles/tokens/border-radius" as br;
+@use "../../styles/typography.scss" as ty;
+@use "../../styles/tokens/spacing" as s;
+@use "../../styles/tokens/colors" as c;
+
+@use "../../styles/utils/functions" as t;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 110%;
+
+  background: t.token(c.$color-grayscale, "white");;
+  border: 1px solid t.token(c.$color-grayscale, "grayscale-5");
+
+  overflow: hidden;
+  z-index: 999;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.item {
+  @extend .text-small;
+  display: flex;
+  align-items: center;
+  gap: t.token(s.$padding, "padding-xs"); 
+
+  padding: t.token(s.$padding, "padding-sm");
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.item:hover {
+  background: t.token(c.$color-grayscale, "grayscale-3"); 
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}

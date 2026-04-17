@@ -1,0 +1,38 @@
+@use "../utils/functions" as t;
+@use "../tokens/colors" as c;
+@use "../tokens/spacing" as sp;
+@use "../tokens/typography" as ty;
+
+@mixin text-style(
+  $size-key,
+  $weight-key: fw-normal,
+  $lh-key: lh-r,
+  $family-key: inter
+) {
+  font-size: t.token(ty.$font-size, $size-key);
+  font-weight: t.token(ty.$font-weight, $weight-key);
+  line-height: t.token(ty.$line-height, $lh-key);
+  font-family: t.token(ty.$font-family, $family-key);
+}
+
+@mixin button-base($padding-y, $padding-x, $radius: 8px) {
+  padding: $padding-y $padding-x;
+  border-radius: $radius;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.12s ease, transform 0.06s ease,
+    box-shadow 0.12s ease;
+  user-select: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+} // может нужно добавить что-то еще? я добавляла по необходимости, но наверняка можно что-то оптимизировать. здесь наверное будет адаптив

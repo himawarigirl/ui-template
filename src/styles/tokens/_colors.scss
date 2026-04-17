@@ -1,0 +1,50 @@
+$color-primary: (
+  "primary": #2563eb,
+  "secondary": #dfedff,
+  "accent": #c6d7ff,
+  "focus": #c6d7ff,
+  "hover": #68a4ff,
+  "pressed": #1d4ed8,
+  "border": #c0cdde,
+);
+
+$color-success: (
+  "success": #09dd6c,
+  "secondary": #d0ffe3,
+  "border": #48bd04,
+);
+
+$color-warning: (
+  "warning": #ffae3c,
+  "secondary": #fff1bd,
+  "border": #f59611,
+);
+
+$color-danger: (
+  "danger": #eb2525,
+  "secondary": #ffcaca,
+  "border": #dc1e1e,
+);
+
+$color-grayscale: (
+  "white": #ffffff,
+  "grayscale-1": #f4f4f4,
+  "grayscale-2": #efefef,
+  "grayscale-3": #e8e8e8,
+  "grayscale-4": #b5b5b5,
+  "grayscale-5": #a4a4a4,
+  "black": #0f172a,
+);
+
+$shadow: (
+  "light": 0 0 0 2px rgba(37, 99, 235, 0.08),
+);
+
+$color-background: #f8fafc;
+
+$color-border: #c0cdde;
+$color-muted: #64748b;
+
+$color-star: #ffd86e;
+
+$dark-mode: true;

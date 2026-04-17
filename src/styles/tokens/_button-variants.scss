@@ -1,0 +1,29 @@
+@use "sass:map";
+@use "./colors" as c;
+@use "../utils/functions" as t;
+
+$button-variants: (
+  primary: (
+    background: t.token(c.$color-primary, "primary"),
+    color: t.token(c.$color-grayscale, "white"),
+    border: transparent,
+    hover-background: t.token(c.$color-primary, "hover"),
+    active-background: t.token(c.$color-primary, "pressed"),
+  ),
+
+  secondary: (
+    background: t.token(c.$color-primary, "secondary"),
+    color: t.token(c.$color-primary, "primary"),
+    border: t.token(c.$color-primary, "border"),
+    hover-background: t.token(c.$color-grayscale, "white"),
+    active-background: t.token(c.$color-primary, "focus"),
+  ),
+
+  tertiary: (
+    background: t.token(c.$color-grayscale, "white"),
+    color: t.token(c.$color-primary, "primary"),
+    border: t.token(c.$color-primary, "border"),
+    hover-background: t.token(c.$color-primary, "secondary"),
+    active-background: t.token(c.$color-primary, "focus"),
+  ),
+);

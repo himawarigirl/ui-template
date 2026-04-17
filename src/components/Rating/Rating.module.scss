@@ -1,0 +1,30 @@
+@use "../../styles/tokens/colors" as c;
+@use "../../styles/tokens/spacing" as s;
+@use "../../styles/utils/functions" as t;
+
+.rating {
+  display: flex;
+  gap: t.token(s.$padding, "padding-xs");
+}
+
+.star {
+  color: t.token(c.$color-grayscale, "grayscale-3");
+  transition: color 0.2s ease, transform 0.15s ease;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.filled {
+  color: c.$color-star;
+}
+
+.interactive {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

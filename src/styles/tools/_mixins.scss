@@ -2,6 +2,7 @@
 @use "../tokens/colors" as c;
 @use "../tokens/spacing" as sp;
 @use "../tokens/typography" as ty;
+@use "../tokens/breakpoints" as bp;
 
 @mixin text-style(
   $size-key,
@@ -35,4 +36,10 @@
     cursor: not-allowed;
     transform: none;
   }
-} // может нужно добавить что-то еще? я добавляла по необходимости, но наверняка можно что-то оптимизировать. здесь наверное будет адаптив
+}
+
+@mixin respond($size) {
+  @media (max-width: t.token(bp.$breakpoints, $size)) {
+    @content;
+  }
+}// может нужно добавить что-то еще? я добавляла по необходимости, но наверняка можно что-то оптимизировать. здесь наверное будет адаптив

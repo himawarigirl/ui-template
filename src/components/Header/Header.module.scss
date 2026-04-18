@@ -2,6 +2,7 @@
 @use "../../styles/tokens/border-radius" as br;
 @use "../../styles/tokens/colors" as c;
 @use "../../styles/typography.scss";
+@use "../../styles/tools/mixins" as m;
 
 @use "../../styles/utils/functions" as t;
 
@@ -14,14 +15,30 @@
   display: grid;
   grid-template-columns: 1fr 40% 1fr;
   align-items: center;
+  height: 78px;
 
   padding: t.token(s.$padding, "padding-r") t.token(s.$padding, "padding-m");
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  height: 78px;
+  width: 70%;
+
   @extend .text-logo;
 
-  grid-column: 1;
-  justify-self: start;
+  img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+.search {
+  width: 100%;
 }
 
 .actions {
@@ -35,27 +52,14 @@
 
 .login {
   @extend .text-button-semibold;
+
   padding: t.token(s.$padding, "padding-sm") t.token(s.$padding, "padding-m");
   text-transform: uppercase;
-  width: 180px; // подправить
 }
 
-.avatar {
-  @extend .text-small;
-  width: 48px;
-  height: 48px;
-
-  border-radius: t.token(br.$border-radius, "avatar");
-  background: t.token(c.$color-primary, "primary"); 
-  color: t.token(c.$color-grayscale, "white");
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} // подправить
-
-.icon {
+.notifications {
   background: none;
+  border: none;
   align-self: center;
   color: t.token(c.$color-grayscale, "grayscale-5");
 }

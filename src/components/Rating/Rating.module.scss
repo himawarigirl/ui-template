@@ -4,6 +4,7 @@
 
 .rating {
   display: flex;
+  align-items: center;
   gap: t.token(s.$padding, "padding-xs");
 }
 
@@ -20,6 +21,7 @@
 .filled {
   color: c.$color-star;
 }
+
 
 .interactive {
   cursor: pointer;

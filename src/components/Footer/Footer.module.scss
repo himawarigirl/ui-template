@@ -19,6 +19,19 @@
 
 .logo {
   @extend .text-logo;
+
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  height: 64px;
+
+  img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
 }
 
 .divider {
@@ -36,10 +49,12 @@
 
 .links {
   display: flex;
+  align-items: center;
   gap: t.token(s.$padding, "padding-r");
 
   a {
     text-decoration: none;
+    color: t.token(c.$color-grayscale, "white");
     cursor: pointer;
 
     &:hover {

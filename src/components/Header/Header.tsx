@@ -5,11 +5,12 @@ import Button from "../Button/Button";
 import Input from "../Input/Input";
 
 import { BellIcon, LoginIcon } from "../../assets/icons";
+import { Avatar } from "../Avatar/Avatar";
 
 type HeaderProps = {
   isAuth: boolean;
 
-  logo?: React.ReactNode;
+  logo?: string | React.ReactNode;
   searchPlaceholder?: string;
 
   user?: {
@@ -18,6 +19,10 @@ type HeaderProps = {
 
   onLoginClick?: () => void;
   onNotificationClick?: () => void;
+};
+
+const isImageSrc = (value: string) => {
+  return /\.(png|jpe?g|svg|webp|gif)$/i.test(value);
 };
 
 export const Header: React.FC<HeaderProps> = ({
@@ -31,9 +36,23 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.logo}>{logo}</div>
+        <div className={styles.logo}>
+          {typeof logo === "string" ? (
+            isImageSrc(logo) ? (
+              <img src={logo} alt="logo" />
+            ) : (
+              logo
+            )
+          ) : (
+            logo
+          )}
+        </div>
 
-        <Input state="search" placeholder={searchPlaceholder} />
+        <Input
+          className={styles.search}
+          state="search"
+          placeholder={searchPlaceholder}
+        />
 
         <div className={styles.actions}>
           {!isAuth ? (
@@ -42,16 +61,20 @@ export const Header: React.FC<HeaderProps> = ({
               className={styles.login}
               onClick={onLoginClick}
             >
-              Войти
+              <span>Войти</span>
               <LoginIcon />
             </Button>
           ) : (
             <>
-              <button className={styles.icon} onClick={onNotificationClick}>
+              <button
+                type="button"
+                className={styles.notifications}
+                onClick={onNotificationClick}
+                aria-label="Notifications"
+              >
                 <BellIcon />
               </button>
-
-              <div className={styles.avatar}>{user?.initials || "XX"}</div>
+              <Avatar size="lg" />
             </>
           )}
         </div>

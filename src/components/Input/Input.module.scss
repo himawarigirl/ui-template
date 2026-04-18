@@ -2,6 +2,7 @@
 @use "../../styles/tokens/colors" as c;
 @use "../../styles/tokens/border-radius" as br;
 @use "../../styles/utils/functions" as t;
+@use "../../styles/tools/mixins" as m;
 
 @use "../../styles/typography.scss";
 
